@@ -5,7 +5,7 @@ import EncoderDecoder as E_D
 from EncoderDecoder import EncoderDecoder
 import evaluate as ev
 
-def app_line(message):
+def line(message):
     device = torch.device("cpu")
 
     state_dict = torch.load(f'{Config.data_dir}/{Config.fn}.pth', map_location=device)
