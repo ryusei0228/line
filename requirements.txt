@@ -3,16 +3,4 @@ line-bot-sdk==2.1.0
 -f https://download.pytorch.org/whl/torch_stable.html
 torch == 1.10.2+cpu
 transformers == 2.8.0
-app_line
-Attention
-Config
-Decoder
-Embedding
-Encoder
-EncoderDecoder
-evaluate
-FFN
-Generator
-model
-subsequent
-tokenizer
+
