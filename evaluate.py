@@ -1,5 +1,5 @@
 import torch
-from subsequent_mask import subsequent_mask
+from subsequent import subsequent_mask
 
 def evaluate(config, input_seq, tokenizer, model, device):
     model.eval()
