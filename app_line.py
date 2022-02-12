@@ -25,7 +25,7 @@ def prep():
     
     device = torch.device("cpu")
 
-    state_dict = torch.load(f'{Config.data_dir}/{Config.fn}.pth', map_location=device)
+    state_dict = torch.load(f'{Config.fn}.pth', map_location=device)
 
     tokenizer = Tokenizer.from_pretrained(Config.model_name)
 
