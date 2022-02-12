@@ -1,9 +1,9 @@
 import torch
-from mylib from Config import Config
-from mylib from tokenizer import Tokenizer
-from mylib import EncoderDecoder as E_D
-from mylib from EncoderDecoder import EncoderDecoder
-from mylib import evaluate as ev
+from mylib.Config import Config
+from mylib.tokenizer import Tokenizer
+from mylib.EncoderDecoder import build_model
+from mylib.EncoderDecoder import EncoderDecoder
+from mylib.evaluate import evaluate
 
 def line(message):
     device = torch.device("cpu")
@@ -12,7 +12,7 @@ def line(message):
 
     tokenizer = Tokenizer.from_pretrained(Config.model_name)
 
-    model = E_D.build_model(Config).to(device)
+    model = build_model(Config).to(device)
     model.load_state_dict(state_dict["model"])
     model.eval()
     model.freeze()
@@ -22,7 +22,7 @@ def line(message):
         if s == "q":
            break
         print("BOT>", end = "")
-        text = ev.evaluate(Config, s, tokenizer, model, device)
+        text = evaluate(Config, s, tokenizer, model, device)
         print(text)
 
 
