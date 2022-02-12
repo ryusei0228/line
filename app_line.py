@@ -4,13 +4,14 @@ from tokenizer import Tokenizer
 from EncoderDecoder import build_model
 from EncoderDecoder import EncoderDecoder
 from evaluate import evaluate
-import requests
+import urllib
 
 def prep():
-       
+    url = "https://github.com/ryusei0228/line/releases/download/test/ckpt.pth"
+    urllib.urlretrieve(url, "./data/ckpt.pth")
     device = torch.device("cpu")
 
-    state_dict = torch.load(f'./releases/download/test/ckpt.pth', map_location=device)
+    state_dict = torch.load(f'./data/ckpt.pth', map_location=device)
 
     tokenizer = Tokenizer.from_pretrained(Config.model_name)
 
