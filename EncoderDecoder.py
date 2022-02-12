@@ -1,8 +1,8 @@
 import torch.nn as nn
-import Embedding as Embed
-import Encoder as encoder
-import Decoder as decoder
-from Generator import Generator
+from mylib import Embedding as Embed
+from mylib import Encoder as encoder
+from mylib import Decoder as decoder
+from mylib from Generator import Generator
 
 def build_model(config):
     model = EncoderDecoder(config.model_name, config.vocab_size, config.num_head,
