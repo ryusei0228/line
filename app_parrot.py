@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 import os
-from app_line import line
+from app_line import line, prep
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -19,6 +19,8 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
+
+prep()
 
 @app.route("/callback", methods=["POST"])
 def callback():
