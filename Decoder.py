@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from Attention import SelfAttention, SourceTargetAttention
-from FNN import FFN
+from FNN import ffn
 
 def build_decoder(N=6, h=8, d_model=512, d_ff=2048, drop_rate=0.1):
     decoder_layers = [DecoderLayer(h, d_model, d_ff, drop_rate) for _ in range(N)]
@@ -31,7 +31,7 @@ class DecoderLayer(nn.Module):
 
         self.self_attn = SelfAttention(h, d_model, drop_rate)
         self.st_attn = SourceTargetAttention(h, d_model, drop_rate)
-        self.ff = FFN(d_model, d_ff)
+        self.ff = ffn(model, d_ff)
 
     def forward(self, x, mem, source_mask, target_mask):
         x = self.self_attn(x, target_mask)
