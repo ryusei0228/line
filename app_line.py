@@ -5,7 +5,7 @@ from EncoderDecoder import build_model
 from EncoderDecoder import EncoderDecoder
 from evaluate import evaluate
 
-def prep:
+def prep():
     device = torch.device("cpu")
 
     state_dict = torch.load(f'{Config.data_dir}/{Config.fn}.pth', map_location=device)
