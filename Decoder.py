@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from mylib from Attention import SelfAttention, SourceTargetAttention
-from mylib from FFN import FFN
+from mylib.Attention import SelfAttention, SourceTargetAttention
+from mylib.FNN import FFN
 
 def build_decoder(N=6, h=8, d_model=512, d_ff=2048, drop_rate=0.1):
     decoder_layers = [DecoderLayer(h, d_model, d_ff, drop_rate) for _ in range(N)]
