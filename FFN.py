@@ -6,7 +6,7 @@ import math
 def gelu(x):
     return x * 0.5 * (1.0 + torch.erf(x / math.sqrt(2.0)))
 
-class FFN(nn.Module):
+class ffn(nn.Module):
     def __init__(self, d_model=768, d_ff=2048, drop_rate=0.1, activation=gelu):
         super(FFN, self).__init__()
         self.drop_rate = drop_rate
