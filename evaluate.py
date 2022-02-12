@@ -1,5 +1,5 @@
 import torch
-from mylib import subsequent as subseq
+from mylib.subsequent import subsequent as subseq
 
 def evaluate(config, input_seq, tokenizer, model, device):
     model.eval()
