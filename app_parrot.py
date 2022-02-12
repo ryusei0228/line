@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 import os
-import app_line as app
+import app_line
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -36,7 +36,7 @@ def callback():
 
 @handler.add(MessageEvent, message = TextMessage)
 def handle_message(event):
-    replytext = app.line(message)
+    replytext = app_line.line(message)
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=replytext))
