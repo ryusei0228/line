@@ -1,8 +1,8 @@
 import torch.nn as nn
-from mylib import Embedding as Embed
-from mylib import Encoder as encoder
-from mylib import Decoder as decoder
-from mylib from Generator import Generator
+from mylib.Embedding import build_embedding
+from mylib.Encoder import build_encoder
+from mylib.Decoder import build_decoder
+from mylib.Generator import Generator
 
 def build_model(config):
     model = EncoderDecoder(config.model_name, config.vocab_size, config.num_head,
@@ -16,10 +16,10 @@ class EncoderDecoder(nn.Module):
                  d_model=768, N=6, d_ff=2048, drop_rate=0.1, max_len=22):
         super(EncoderDecoder, self).__init__()
 
-        self.target_emb = Embed.build_embedding(vocab_size, d_model, drop_rate, max_len=max_len)
+        self.target_emb = build_embedding(vocab_size, d_model, drop_rate, max_len=max_len)
 
-        self.encoder = encoder.build_encoder(bert_model_name)
-        self.decoder = decoder.build_decoder(N, h, d_model, d_ff)
+        self.encoder = build_encoder(bert_model_name)
+        self.decoder = build_decoder(N, h, d_model, d_ff)
 
         self.generator = Generator(d_model, vocab_size)
 
