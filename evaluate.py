@@ -1,5 +1,5 @@
 import torch
-from mylib.subsequent import subsequent as subseq
+from mylib.subsequent import subsequent_mask
 
 def evaluate(config, input_seq, tokenizer, model, device):
     model.eval()
@@ -10,7 +10,7 @@ def evaluate(config, input_seq, tokenizer, model, device):
     ys = torch.ones(1, 1).fill_(tokenizer.cls_token_id).long().to(device)
     with torch.no_grad():
         for i in range(config.max_len - 1):
-            out = model.decode(mem, src_mask, ys, subseq.subsequent_mask(ys.size(1)).type_as(ys))
+            out = model.decode(mem, src_mask, ys, subsequent_mask(ys.size(1)).type_as(ys))
             prob = model.generate(out[:, -1])
             _, candidate = prob.topk(5, dim=1)
             next_word = candidate[0, 0]
