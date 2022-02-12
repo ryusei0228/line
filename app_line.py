@@ -9,7 +9,7 @@ import requests
 def prep():
     
     id = '1DubBO3fagYccVuKwrIVa4zGvsCzW7FCr'
-    destination = ".data/ckpt.pth"
+    destination = "ckpt.pth"
     URL = "https://docs.google.com/uc?export=download"
 
     session = requests.Session()
