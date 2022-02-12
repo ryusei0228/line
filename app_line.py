@@ -4,7 +4,7 @@ from tokenizer import Tokenizer
 from EncoderDecoder import build_model
 from EncoderDecoder import EncoderDecoder
 from evaluate import evaluate
-import urllib
+from urllib.request import urlretrieve
 
 def prep():
     url = "https://github.com/ryusei0228/line/releases/download/test/ckpt.pth"
