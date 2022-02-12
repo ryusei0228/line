@@ -19,8 +19,6 @@ def prep():
 
 def line(message):
     s = message
-    if s == "q":
-       break
     print("BOT>", end = "")
     text = evaluate(Config, s, tokenizer, model, device)
     print(text)
