@@ -8,7 +8,7 @@ from urllib.request import urlretrieve
 
 def prep():
     url = "https://github.com/ryusei0228/line/releases/download/test/ckpt.pth"
-    urllib.urlretrieve(url, "./data/ckpt.pth")
+    urlretrieve(url, "./data/ckpt.pth")
     device = torch.device("cpu")
 
     state_dict = torch.load(f'./data/ckpt.pth', map_location=device)
