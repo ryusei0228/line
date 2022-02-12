@@ -1,9 +1,9 @@
 import torch
-from mylib.Config import Config
-from mylib.tokenizer import Tokenizer
-from mylib.EncoderDecoder import build_model
-from mylib.EncoderDecoder import EncoderDecoder
-from mylib.evaluate import evaluate
+from Config import Config
+from tokenizer import Tokenizer
+from EncoderDecoder import build_model
+from EncoderDecoder import EncoderDecoder
+from evaluate import evaluate
 
 def line(message):
     device = torch.device("cpu")
