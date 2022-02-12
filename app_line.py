@@ -10,7 +10,7 @@ def prep():
        
     device = torch.device("cpu")
 
-    state_dict = torch.load(f'https://github.com/ryusei0228/line/releases/download/test/ckpt.pth', map_location=device)
+    state_dict = torch.load(f'./releases/download/test/ckpt.pth', map_location=device)
 
     tokenizer = Tokenizer.from_pretrained(Config.model_name)
 
